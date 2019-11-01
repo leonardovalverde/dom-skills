@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="divbotao">
+        <button id="botao">Gerar Quadrado</button>
+        <ul id="quadrado"></ul>
+    </div>
+
+
+
+    <script>
+        
+
+
+        var clicarBotao = document.querySelector('div#divbotao button#botao');
+        clicarBotao.onclick = function pressButton(){
+            var square = document.querySelector('ul#quadrado');
+            var liSquare = document.createElement('p');
+            liSquare.className = "quadradoGerado";
+            
+            
+            square.appendChild(liSquare);
+
+            liSquare.style.height = '100px';
+            liSquare.style.backgroundColor = 'red';
+            liSquare.style.width = '100px';       
+            liSquare.style.display = 'inline-block';
+            liSquare.style.margin = '5px';
+            liSquare.onmouseover = function mouseCor(){ 
+            liSquare.style.backgroundColor = getRandomColor();
+            }
+        };
+
+        function getRandomColor(){
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+
+            };
+
+                  
+      
+            
+                  
+
+        
+
+    </script>
+</body>
+</html>
