@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Lista Preenchida via JavaScript/Manipulacao de DOM</h1>
+
+    <input id = "escrita" type="text" name="nome">
+    <button id = "botao" onClick="adicionar()">Adicionar</button>
+
+    <ul id="listaPreenchida"> Nomes
+    </ul>
+
+
+    <script>
+    var nomes = ["Diego", "Gabriel", "Lucas"];
+
+    var text = '';
+
+    for (i = 0; i < nomes.length; i++){
+        text += "<li>" + nomes[i] + "</li>";
+    }
+
+
+    var btnElement = document.querySelector('button#botao');
+    var inputElement = document.querySelector('input#escrita');
+
+    btnElement.onclick = function() {
+        var selecionaUl = document.querySelector('ul#listaPreenchida');
+        var criaLi = document.createElement('li');
+        selecionaUl.appendChild(criaLi);
+
+        var text = inputElement.value;
+        criaLi.textContent = text;      
+
+        document.getElementById('escrita').value = "";
+    };
+
+    document.getElementById('listaPreenchida').innerHTML = 'Nomes' + text;
+    
+    </script>
+</body>
+</html>
